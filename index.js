@@ -76,8 +76,8 @@ rlpx.on('peer:added', (peer) => {
       clientMeta2: splitClientId[1],
       clientMeta3: splitClientId[2],
       clientMeta4: splitClientId[3],
-      latitude: peerGeo.ll[0],
-      longitude: peerGeo.ll[1]
+      latitude: peerGeo ? peerGeo.ll[0] : null,
+      longitude: peerGeo ? peerGeo.ll[1] : null
     }).then(() => {
       debug('Saved peer error')
     }).catch((err) => {
@@ -95,10 +95,8 @@ rlpx.on('peer:added', (peer) => {
     timestamp: new Date(),
     country: _.has(peerGeo, 'country') ? peerGeo.country : null,
     city: _.has(peerGeo, 'city') ? peerGeo.city : null,
-    //    latitude: peerGeo.ll[0],
-    //   longitude: peerGeo.ll[1],
-    latitude: peerGeo.ll[0],
-    longitude: peerGeo.ll[1],
+    latitude: peerGeo ? peerGeo.ll[0] : null,
+    longitude: peerGeo ? peerGeo.ll[1] : null,
     clientMeta1: splitClientId[0],
     clientMeta2: splitClientId[1],
     clientMeta3: splitClientId[2],
